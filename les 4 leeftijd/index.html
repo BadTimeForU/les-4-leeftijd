@@ -1,0 +1,44 @@
+<!DOCTYPE html>  
+<html lang="nl">  
+<head>  
+    <meta charset="UTF-8">  
+    <meta name="Kevin" content="width=device-width, initial-scale=1.0">  
+    <title>Leeftijd in Dagen Calculator van Kevin</title>  
+    <script>  
+        function berekenLeeftijdInJaren() {  
+             
+            const geboorteJaar = parseInt(document.getElementById('jaar').value);  
+            const geboorteMaand = parseInt(document.getElementById('maand').value);  
+            const geboorteDag = parseInt(document.getElementById('dag').value);  
+            
+              
+            let now = new Date();  
+            
+            let birth = new Date(geboorteJaar, geboorteMaand - 1, geboorteDag);  
+             
+            let miliseconds = now - birth;  
+
+              
+            let jaren = miliseconds / (1000 * 60 * 60 * 24 * 365.25);  
+
+              
+            document.getElementById('resultaat').innerText = `Je bent ${jaren.toFixed(2)} jaar oud.`;  
+        }  
+    </script>  
+</head>  
+<body>  
+    <h1>Bereken Je Leeftijd in Jaren</h1>  
+    <label for="jaar">Welk jaar ben je geboren?</label>  
+    <input type="number" id="jaar" required><br>  
+
+    <label for="maand">Welke maand ben je geboren?</label>  
+    <input type="number" id="maand" min="1" max="12" required><br>  
+
+    <label for="dag">Welke dag ben je geboren?</label>  
+    <input type="number" id="dag" min="1" max="31" required><br>  
+
+    <button onclick="berekenLeeftijdInJaren()">Bereken Leeftijd</button>  
+
+    <h2 id="resultaat"></h2>  
+</body>  
+</html>
